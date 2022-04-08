@@ -1,23 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+// TASK LIST
+// 1 - Break down the problem
+//   1.1 - Break down the tic tac toe game in to components - game, board, squares
+//   1.2 - Define functions and core logic for each component - game state, boardstate, square state, checkWinner, playerTurn, dipslayWinner, restartGame, renderBoard by mapping through squares x9
+// 2 - Universal CSS & CSS modules for each component
+// 3 - Test functionality 
+// 4 - Strecth Goals & additonal features 
+
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     
     </div>
   );
 }
