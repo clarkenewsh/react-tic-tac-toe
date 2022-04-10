@@ -9,7 +9,7 @@ const Board = ({ squares, handleClick }) => {
   return (
     <div className={cssClasses.gameBoard}>
       {squares.map((square, index) => (
-        <Square value={square} key={index} handleClick={handleClick} />
+        <Square value={square} key={index} handleClick={() => handleClick(index)} />
       ))}
     </div>
   )
