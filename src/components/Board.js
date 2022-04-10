@@ -1,6 +1,5 @@
 import React from 'react';
 import Square from './Square';
-import { useState } from 'react';
 import cssClasses from './Board.module.css';
 
 const Board = ({ squares, handleClick }) => {
@@ -9,7 +8,7 @@ const Board = ({ squares, handleClick }) => {
   return (
     <div className={cssClasses.gameBoard}>
       {squares.map((square, index) => (
-        <Square value={square} key={index} handleClick={() => handleClick(index)} />
+        <Square value={square} key={index} onClick={() => handleClick(index)} />
       ))}
     </div>
   )
