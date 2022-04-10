@@ -74,7 +74,7 @@ const App = () => {
         <Board checkWinner={checkWinner} handleClick={handleClick} squares={board}/>
         <p>
           { winner ? `Winner is: ${winner}` 
-          : "Player turn: " + (xNext ? "X" : "O") 
+          : "Player turn: " + (xNext ? "X" : "O")
           }
         </p>
       </main>
