@@ -69,16 +69,14 @@ const App = () => {
 
   return (
     <>
-      <header>
-        <h1>Tic-Tac-Toe</h1>
-      </header>
       <main>
-      <Board checkWinner={checkWinner} handleClick={handleClick} squares={board}/>
-      <p>
-        { winner ? `Winner is ${winner}` 
-        : `Next player turn ${xNext}` ? "X" : "O" 
-        }
-      </p>
+        <h1>Tic-Tac-Toe</h1>
+        <Board checkWinner={checkWinner} handleClick={handleClick} squares={board}/>
+        <p>
+          { winner ? `Winner is: ${winner}` 
+          : "Player turn: " + (xNext ? "X" : "O") 
+          }
+        </p>
       </main>
     </>
   );
