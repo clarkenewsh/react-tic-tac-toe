@@ -11,25 +11,49 @@ import Board from './components/Board';
 
 const App = () => {
 
-  const checkWinner = () => {
+  const checkWinner = (squares) => {
+    const winningPositions = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6],
+    ];
 
+    for (let i = 0; i < winningPositions.length; i++) {
+      const [a, b, c] = winningPositions[i];
+      if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+        return squares[a];
+      }
+    }
+    return null;
   }
 
   const handleClick = () => {
     console.log("clicked");
   }
 
-  // Set up value of each squares
+  // Set up value of each squares - test array
   const squares = [
     'O', null, 'X',
-    'X', 'X', 'O',
+    'X', 'X', 'X',
     'O', null, null,
-  ]
+  ];
+
+  console.log(checkWinner(squares));
 
   return (
-    <main>
-     <Board checkWinner={checkWinner} handleClick={handleClick} squares={squares}/>
-    </main>
+    <>
+      <header>
+        <h1>Tic-Tac-Toe</h1>
+      </header>
+      <main>
+      <Board checkWinner={checkWinner} handleClick={handleClick} squares={squares}/>
+      </main>
+    </>
   );
 }
 
