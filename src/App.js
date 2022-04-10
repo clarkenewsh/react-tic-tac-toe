@@ -1,4 +1,5 @@
 import './App.css';
+import { useState } from 'react';
 import Board from './components/Board';
 
 // TASK LIST
@@ -10,6 +11,13 @@ import Board from './components/Board';
 // 4 - Stretch Goals & additional features 
 
 const App = () => {
+
+  // Set board squares array with null values upon game start
+  const [board, setBoard] = useState(Array(9).fill(null));
+  const [xNext, setXNext] = useState(true);
+  
+
+  console.log(board);
 
   const checkWinner = (squares) => {
     const winningPositions = [
@@ -24,26 +32,40 @@ const App = () => {
     ];
 
     for (let i = 0; i < winningPositions.length; i++) {
+      // store destructured all winning lines - a,b,c
       const [a, b, c] = winningPositions[i];
       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
         return squares[a];
       }
     }
     return null;
-  }
+  };
 
-  const handleClick = () => {
-    console.log("clicked");
-  }
+  const winner = checkWinner(board);
+
+  const handleClick = (index) => {
+
+    console.log("clicked", index);
+    let updatedBoard = [...board];
+    // If game is won or square occupied, return
+    if(winner || updatedBoard[index]) {
+      return;
+    };
+
+    // render X or O is clicked square
+    updatedBoard[index] = xNext ? "X" : "O";
+    // update board state with moves
+    setBoard(updatedBoard);
+    // alternate player
+    setXNext(!xNext);
+  };
 
   // Set up value of each squares - test array
-  const squares = [
-    'O', null, 'X',
-    'X', 'X', 'X',
-    'O', null, null,
-  ];
-
-  console.log(checkWinner(squares));
+  // const squares = [
+  //   'O', null, 'X',
+  //   'O', 'X', 'X',
+  //   'X', null, 'X',
+  // ];
 
   return (
     <>
@@ -51,7 +73,12 @@ const App = () => {
         <h1>Tic-Tac-Toe</h1>
       </header>
       <main>
-      <Board checkWinner={checkWinner} handleClick={handleClick} squares={squares}/>
+      <Board checkWinner={checkWinner} handleClick={handleClick} squares={board}/>
+      <p>
+        { winner ? `Winner is ${winner}` 
+        : `Next player turn ${xNext}` ? "X" : "O" 
+        }
+      </p>
       </main>
     </>
   );
