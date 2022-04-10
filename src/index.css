@@ -23,5 +23,35 @@ main {
   height: 100vh;
 }
 
+main h1 {
+  margin-bottom: 30px;
+  color: #ff006e;
+}
+
+main p {
+  margin-top: 30px;
+  font-size: 130%;
+  font-weight: 700;
+  color: #ff006e;
+}
+
+.btn {
+  background: #ff006e;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 0.375rem;
+  color: #fff;
+  font-weight: 700;
+  margin: 20px;
+  border: 2px solid #ff006e;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: transparent;
+  color: #ff006e;
+  border: 2px solid #ff006e;
+}
+
 
 

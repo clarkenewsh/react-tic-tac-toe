@@ -67,6 +67,11 @@ const App = () => {
   //   'X', null, 'X',
   // ];
 
+  const restartHandler = () => {
+    setBoard(Array(9).fill(null));
+    setXNext(true);
+  }
+
   return (
     <>
       <main>
@@ -77,6 +82,7 @@ const App = () => {
           : "Player turn: " + (xNext ? "X" : "O")
           }
         </p>
+        <button onClick={restartHandler}className='btn'>Restart</button>
       </main>
     </>
   );
