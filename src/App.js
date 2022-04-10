@@ -16,9 +16,6 @@ const App = () => {
   const [board, setBoard] = useState(Array(9).fill(null));
   const [xNext, setXNext] = useState(true);
   
-
-  console.log(board);
-
   const checkWinner = (squares) => {
     const winningPositions = [
       [0, 1, 2],
